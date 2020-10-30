@@ -1,5 +1,6 @@
 class Pokemon
-  attr_accessor :id, :name, :type, :hp, :db
+  attr_accessor :name, :type, :hp, :db
+  attr_reader :id
 
   def initialize (id:, name:, type:, hp: nil, db:)
     @id = id
@@ -22,7 +23,7 @@ class Pokemon
     sql = <<-SQL
       SELECT * FROM pokemon WHERE id = (?);
     SQL
-    pokemon = db.execute(sql, [id])
+    pokemon = db.execute(sql, [id]).flatten
     Pokemon.new(id, pokemon[1], pokemon[2], pokemon[3], db)
   end
 end
