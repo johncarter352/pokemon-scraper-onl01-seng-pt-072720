@@ -1,6 +1,7 @@
 class Pokemon
   attr_accessor :name, :type, :hp, :db
   attr_reader :id
+  @@all = []
 
   def initialize (id:, name:, type:, hp: nil, db:)
     @id = id
@@ -8,6 +9,7 @@ class Pokemon
     @type = type
     @hp = hp
     @db = db
+    @@all << self
   end
 
   def self.save(name, type, db)
