@@ -24,7 +24,7 @@ class Pokemon
     #name = pokemon[1]
     #type = pokemon[2]
     #hp = pokemon[3]
-    Pokemon.new(id, pokemon[1], pokemon[2], pokemon[3], db)
+    new_pokeman = Pokemon.new(id, pokemon[1], pokemon[2], pokemon[3], db)
   end
 
   def alter_hp(new_hp, database_connection)
